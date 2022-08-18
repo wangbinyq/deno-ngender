@@ -1,5 +1,6 @@
 import * as csv from "https://deno.land/std@0.152.0/encoding/csv.ts";
 import * as buffer from "https://deno.land/std@0.152.0/io/buffer.ts";
+import * as streams from "https://deno.land/std@0.152.0/streams/mod.ts";
 
 let loaded = false;
 let total = 0;
@@ -13,10 +14,12 @@ export async function init() {
   if (loaded) {
     return;
   }
-  const f = await Deno.open(
+  const f = await fetch(
     new URL("../ngender/charfreq.csv", import.meta.url),
   );
-  const reader = new buffer.BufReader(f);
+  const reader = new buffer.BufReader(
+    streams.readerFromStreamReader(f.body!.getReader()),
+  );
   const rows = await csv.parse(reader, { skipFirstRow: true });
 
   for (const row of rows) {
