@@ -12,7 +12,7 @@
 ## Deno 使用
 
 ```
-deno run -A https://deno.land/x/ngender/cli.ts 赵本山 宋丹丹
+deno run -A https://raw.githubusercontent.com/wangbinyq/deno-ngender/master/deno/cli.ts 赵本山 宋丹丹
 ```
 
 ## 使用
