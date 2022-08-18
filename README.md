@@ -1,4 +1,4 @@
-# NGender
+# NGender Deno 版本
 
 根据中文姓名猜测其性别
 
@@ -8,6 +8,12 @@
 - 82%的准确率
 - 可用于猜测性别
 - 也可用于判断名字的男性化/女性化程度
+
+## Deno 使用
+
+```
+deno run -A https://deno.land/x/ngender/cli.ts 赵本山 宋丹丹
+```
 
 ## 使用
 
